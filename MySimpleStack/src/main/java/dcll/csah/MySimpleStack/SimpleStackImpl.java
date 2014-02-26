@@ -3,6 +3,11 @@ package dcll.csah.MySimpleStack;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
+/**
+ * 
+ * @author 21003139
+ *repond à l'exigence #3
+ */
 public class SimpleStackImpl implements SimpleStack{
 
 	Stack<Object> wrappedStack = new Stack<Object>();
