@@ -1,6 +1,7 @@
 package dcll.csah.MySimpleStack;
 
-import junit.framework.Assert;
+import org.junit.Assert;
+
 
 public class SimpleStackImplTest {
 
@@ -21,6 +22,6 @@ public class SimpleStackImplTest {
 		Assert.assertEquals(2, simpleStack.getSize());
 		Assert.assertEquals(9, simpleStack.pop().getValue());
 		Assert.assertEquals(1, simpleStack.getSize());
-		//comm
+	
 	}
 }
