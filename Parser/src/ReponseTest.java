@@ -67,4 +67,3 @@ public class ReponseTest {
 		assertEquals(true, testObject.isCorrect());
 	}
 }
- 
