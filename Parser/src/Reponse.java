@@ -22,4 +22,4 @@ public class Reponse {
 	public void setCorrect(boolean correct) {
 		this.correct = correct;
 	}
-}
+} 
