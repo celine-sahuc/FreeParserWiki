@@ -38,6 +38,7 @@ public class SingleChoiceTest {
 	 */
 	@Before
 	public void setUp() throws Exception {	
+		/*
 		//Initialisation des réponses
 		reponses = new ArrayList<Reponse>();
 		Reponse r1 = new Reponse();
@@ -65,8 +66,9 @@ public class SingleChoiceTest {
 		reponses.add(r2);
 		reponses.add(r3);
 		reponses.add(r4);
+		*/
 		//Initialisation de la question avec les réponses
-		question = new SingleResponse(reponses);
+		question = new SingleResponse();
 	}
 
 
@@ -89,7 +91,7 @@ public class SingleChoiceTest {
 	
 	@Test
 	public void testNbReponses() {
-		assertEquals(question.getNbReponses(),4);
+		assertEquals(question.getNbReponses(),0);
 	}
 
 	@Test
@@ -101,4 +103,31 @@ public class SingleChoiceTest {
 		assertEquals(question.getNbReponses(),nombreReponse + 1);
 		assertEquals(question.getNbReponsesCorrects(),1);
 	}
+	
+	@Test
+	public void testAjouterReponseCorrecte(){
+		Reponse r = new Reponse();
+		r.setCorrect(true);
+		int nombreReponse = question.getNbReponses(); 
+		question.addResponse(r);
+		assertEquals(question.getNbReponses(),nombreReponse + 1);
+		assertEquals(question.getNbReponsesCorrects(),1);		
+	}
+	
+	@Test
+	public void testQuestionValide() {
+		Reponse r = new Reponse();
+		r.setCorrect(true);
+		question.addResponse(r);		
+		assertTrue(question.isValide());
+	}
+	
+	@Test
+	public void testQuestionInvalide() {
+		Reponse r = new Reponse();
+		r.setCorrect(true);
+		question.addResponse(r);
+		question.addResponse(r);	
+		assertFalse(question.isValide());
+	}	
 }
