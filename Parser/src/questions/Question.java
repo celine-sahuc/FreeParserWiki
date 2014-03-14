@@ -1,14 +1,16 @@
 package questions;
+import java.util.ArrayList;
+
 import parser.Type;
 import reponse.Reponse;
 
 
-public class Question {
+public abstract class Question {
 	private Type type;
-	private Reponse[] ensembleReponsePossibles;
+	private ArrayList<Reponse> ensembleReponsePossibles;
 	private int nombreReponsesCorrects;
 	
-	public Question(Type t, Reponse[] r, int nb) {
+	public Question(Type t, ArrayList<Reponse> r, int nb) {
 		this.type = t;
 		this.ensembleReponsePossibles = r;
 		this.nombreReponsesCorrects = nb;
@@ -18,11 +20,13 @@ public class Question {
 		return this.type;		
 	}
 	
-	public Reponse[] getListeReponses() {		
+	public ArrayList<Reponse> getListeReponses() {		
 		return this.ensembleReponsePossibles;		
 	}
 	
 	public int getNbReponsesCorrects() {
 		return this.nombreReponsesCorrects;		
 	}
+	
+	
 }
