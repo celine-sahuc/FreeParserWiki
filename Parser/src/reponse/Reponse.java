@@ -1,3 +1,4 @@
+package reponse;
 
 public class Reponse {
 	private String reponse;
