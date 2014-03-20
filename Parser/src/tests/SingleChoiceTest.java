@@ -1,4 +1,4 @@
-package tests;
+package freeparserwiki.fpw.tests;
 
 import static org.junit.Assert.*;
 
@@ -10,16 +10,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import parser.Type;
-import questions.SingleResponse;
-import reponse.Reponse;
+import freeparserwiki.fpw.parser.Type;
+import freeparserwiki.fpw.questions.Question;
+import freeparserwiki.fpw.questions.SingleResponse;
+import freeparserwiki.fpw.reponse.Reponse;
 
 public class SingleChoiceTest {
 	/**
 	 * @throws java.lang.Exception
 	 */
 	protected ArrayList<Reponse> reponses;
-	protected SingleResponse question;
+	protected Question question;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -39,7 +40,7 @@ public class SingleChoiceTest {
 	@Before
 	public void setUp() throws Exception {	
 		/*
-		//Initialisation des réponses
+		//Initialisation des rï¿½ponses
 		reponses = new ArrayList<Reponse>();
 		Reponse r1 = new Reponse();
 		r1.setCorrect(false);
@@ -61,14 +62,14 @@ public class SingleChoiceTest {
 		r4.setFeedback("Feedback");
 		r4.setReponse("r1");
 		r4.setCorrect(true);
-		//Ajout des réponses à la liste
+		//Ajout des rï¿½ponses ï¿½ la liste
 		reponses.add(r1);
 		reponses.add(r2);
 		reponses.add(r3);
 		reponses.add(r4);
 		*/
-		//Initialisation de la question avec les réponses
-		question = new SingleResponse();
+		//Initialisation de la question avec les rï¿½ponses
+		question = new SingleResponse("une question");
 	}
 
 
@@ -86,6 +87,10 @@ public class SingleChoiceTest {
 	
 	@Test
 	public void testNbReponsesCorrects() {
+		assertEquals(question.getNbReponsesCorrects(),0);
+		Reponse r = new Reponse();
+		r.setCorrect(true);
+		question.addResponse(r);
 		assertEquals(question.getNbReponsesCorrects(),1);
 	}
 	
@@ -99,9 +104,10 @@ public class SingleChoiceTest {
 		Reponse r = new Reponse();
 		r.setCorrect(false);
 		int nombreReponse = question.getNbReponses(); 
+		int nombreReponsesCorrects = question.getNbReponsesCorrects();
 		question.addResponse(r);
 		assertEquals(question.getNbReponses(),nombreReponse + 1);
-		assertEquals(question.getNbReponsesCorrects(),1);
+		assertEquals(question.getNbReponsesCorrects(),nombreReponsesCorrects);
 	}
 	
 	@Test
@@ -124,10 +130,6 @@ public class SingleChoiceTest {
 	
 	@Test
 	public void testQuestionInvalide() {
-		Reponse r = new Reponse();
-		r.setCorrect(true);
-		question.addResponse(r);
-		question.addResponse(r);	
 		assertFalse(question.isValide());
 	}	
 }

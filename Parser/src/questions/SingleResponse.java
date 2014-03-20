@@ -1,28 +1,22 @@
-package questions;
+package freeparserwiki.fpw.questions;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-import parser.Type;
-import reponse.Reponse;
+import freeparserwiki.fpw.parser.Type;
+import freeparserwiki.fpw.reponse.Reponse;
 
 public class SingleResponse extends Question {
 
-	public SingleResponse(ArrayList<Reponse> r) {
-		super(Type.SINGLE,r,1);
+	public SingleResponse(ArrayList<Reponse> r, String s) {
+		super(Type.SINGLE,s, r,0);
 	}
+	
+	public SingleResponse(String s) {
+		super(Type.SINGLE, s, new ArrayList<Reponse>(),0);
+	}	
 
-	public Reponse getReponseCorrecte() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int getNbReponses() {
-		// TODO Auto-generated method stub
-		return this.getListeReponses().size();
-	}
-
-	public void addResponse(Reponse r) {
-		// TODO Auto-generated method stub
-		this.getListeReponses().add(r);
+	public boolean isValide() {
+		return (getNbReponses() != 0 && this.getNbReponsesCorrects() == 1);
 	}
 }
