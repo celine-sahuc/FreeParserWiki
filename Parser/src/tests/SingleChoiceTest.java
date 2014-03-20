@@ -86,6 +86,16 @@ public class SingleChoiceTest {
 	}
 	
 	@Test
+	public void testQuestion() {
+		assertEquals(question.getQuestion(), "une question");
+	}
+	
+	@Test
+	public void testGetListeReponse() {
+		assertNotNull(question.getListeReponses());
+	}
+	
+	@Test
 	public void testNbReponsesCorrects() {
 		assertEquals(question.getNbReponsesCorrects(),0);
 		Reponse r = new Reponse();
@@ -129,7 +139,15 @@ public class SingleChoiceTest {
 	}
 	
 	@Test
-	public void testQuestionInvalide() {
+	public void testQuestionInvalideAvecReponse() {
+		Reponse r = new Reponse();
+		r.setCorrect(false);
+		question.addResponse(r);		
+		assertFalse(question.isValide());
+	}
+	
+	@Test
+	public void testQuestionInvalideSansReponse() {
 		assertFalse(question.isValide());
 	}	
 }
