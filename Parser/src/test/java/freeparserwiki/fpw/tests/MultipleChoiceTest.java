@@ -42,7 +42,6 @@ public class MultipleChoiceTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
 	}
 
 }
