@@ -1,6 +1,3 @@
-/**
- * Classe Question a choix unique
- */
 package freeparserwiki.fpw.questions;
 
 import freeparserwiki.fpw.parser.Type;

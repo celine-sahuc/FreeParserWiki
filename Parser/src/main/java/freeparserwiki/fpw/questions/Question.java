@@ -1,6 +1,3 @@
-/**
- * Classe Question
- */
 package freeparserwiki.fpw.questions;
 
 import java.util.ArrayList;
