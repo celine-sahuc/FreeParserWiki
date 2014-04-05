@@ -1,6 +1,3 @@
-/**
- * Classe reponse
- */
 package freeparserwiki.fpw.reponse;
 
 public class Reponse {
